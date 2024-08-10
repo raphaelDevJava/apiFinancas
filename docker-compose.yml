@@ -1,0 +1,20 @@
+version: '3.8'
+
+#Criar um serviço de banco de dados do MySQL
+services:
+    mysql:
+      image: mysql:8.0
+      container_name: mysql8
+      restart: always
+      ports:
+         - "3306:3306"
+      environment:
+         MYSQL_ROOT_PASSWORD: coti
+         MYSQL_DATABASE: bd_apifinancas
+         MYSQL_USER: meu_usuario
+         MYSQL_PASSWORD: senha123
+      volumes:
+         - mysql_data:/var/lib/mysql
+volumes:
+    mysql_data:
+       driver: local
